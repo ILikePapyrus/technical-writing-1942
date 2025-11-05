@@ -6,10 +6,13 @@
 
 ---
 
+## Decisioni Prese
 - Oggi abbiamo completato l'analisi tecnica
 - Gabriele sta facendo la revisione dell'analisi funzionale
 
 ---
 
-NEXT STEP:
-- Linee Guida per l'AI Companion (dovremo seguire la metodologia TDD - Test Driven Development o Programmazione a contratto)
+## Action Items (To Do)
+| Assegnato a | Compito | Deadline Simulata |
+| :--- | :--- | :--- |
+| Poy | Creare le Linee Guida per l'AI Companion. | Lunedì |
