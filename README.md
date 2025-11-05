@@ -12,5 +12,3 @@ blazingly fast `HTML5`, `CSS3`, and `JavaScript` 🚀🚀🚀.
 ## How to play
 
 TODO: Add this later
-
-###### DEFINITELY not AI slop
