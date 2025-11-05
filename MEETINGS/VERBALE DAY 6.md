@@ -6,7 +6,8 @@
 
 ---
 
-- Gabriele sta revisionando l'Analisi Tecnica
+- Linee guida AI in lavorazione;
+- Gabriele sta revisionando l'Analisi Tecnica.
 
 ---
 
