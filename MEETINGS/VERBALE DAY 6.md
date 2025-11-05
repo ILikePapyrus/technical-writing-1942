@@ -1,4 +1,4 @@
-# Verbale Riunione di Stato - Lunedì 10/11/25 15:27
+# Verbale Riunione di Stato - Martedì 11/11/25 16:00
 
 **Partecipanti:**
 - Lucia
@@ -6,10 +6,13 @@
 
 ---
 
-- Linee guida AI in lavorazione;
+## Decisioni Prese
+ Linee guida AI in lavorazione;
 - Gabriele sta revisionando l'Analisi Tecnica.
 
 ---
 
-NEXT STEP:
-- Generare gioco
+## Action Items (To Do)
+| Assegnato a | Compito | Deadline Simulata |
+| :--- | :--- | :--- |
+| Pierpaolo | Generare gioco | Martedì |
