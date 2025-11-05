@@ -5,20 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1942 - Arcade Shooter</title>
     <link rel="stylesheet" href="src/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/i18next@23.7.6/i18next.min.js"></script>
 </head>
 <body>
+    <div id="language-selector">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="it">IT</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="de">DE</button>
+    </div>
+    
     <div id="ui-container">
         <div class="ui-panel">
             <div class="ui-item">
-                <span class="ui-label">SCORE</span>
+                <span class="ui-label" data-i18n="ui.score">SCORE</span>
                 <span id="score" class="ui-value">0</span>
             </div>
             <div class="ui-item">
-                <span class="ui-label">LIVES</span>
+                <span class="ui-label" data-i18n="ui.lives">LIVES</span>
                 <span id="lives" class="ui-value">3</span>
             </div>
             <div class="ui-item">
-                <span class="ui-label">LOOPS</span>
+                <span class="ui-label" data-i18n="ui.loops">LOOPS</span>
                 <span id="loops" class="ui-value">3</span>
             </div>
         </div>
@@ -27,19 +35,20 @@
     <div id="game-container"></div>
     
     <div id="game-over-screen" class="hidden">
-        <h1>GAME OVER</h1>
-        <p>Final Score: <span id="final-score">0</span></p>
-        <button id="restart-btn">Press ENTER to Restart</button>
+        <h1 data-i18n="gameOver.title">GAME OVER</h1>
+        <p data-i18n="gameOver.finalScore">Final Score: 0</p>
+        <button id="restart-btn" data-i18n="gameOver.restart">Press ENTER to Restart</button>
     </div>
 
     <div id="start-screen">
         <h1>1942</h1>
-        <p>Arrow Keys or WASD to Move</p>
-        <p>SPACE to Shoot</p>
-        <p>L for Loop (Invulnerability)</p>
-        <button id="start-btn">Press ENTER to Start</button>
+        <p data-i18n="start.moveControls">Arrow Keys or WASD to Move</p>
+        <p data-i18n="start.shootControls">SPACE to Shoot</p>
+        <p data-i18n="start.loopControls">L for Loop (Invulnerability)</p>
+        <button id="start-btn" data-i18n="start.startButton">Press ENTER to Start</button>
     </div>
 
+    <script src="src/js/translations.js"></script>
     <script src="src/js/game.js"></script>
 </body>
 </html>

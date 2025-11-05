@@ -577,7 +577,10 @@ class Game {
     
     gameOver() {
         this.isRunning = false;
-        document.getElementById('final-score').textContent = this.score;
+        const finalScoreElement = document.querySelector('[data-i18n="gameOver.finalScore"]');
+        if (finalScoreElement) {
+            finalScoreElement.textContent = i18next.t('gameOver.finalScore', { score: this.score });
+        }
         document.getElementById('game-over-screen').classList.remove('hidden');
     }
     
@@ -588,7 +591,67 @@ class Game {
     }
 }
 
+// i18next Initialization and Language Management
+function initI18next() {
+    i18next.init({
+        lng: localStorage.getItem('language') || 'en',
+        debug: false,
+        resources: translations
+    }, function(err, t) {
+        if (err) return console.error('i18next initialization failed:', err);
+        updateContent();
+        setupLanguageButtons();
+    });
+}
+
+function updateContent() {
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        
+        if (key === 'gameOver.finalScore') {
+            const scoreElement = document.getElementById('final-score');
+            const score = scoreElement ? scoreElement.textContent : '0';
+            element.textContent = i18next.t(key, { score: score });
+        } else {
+            element.textContent = i18next.t(key);
+        }
+    });
+    
+    document.documentElement.setAttribute('lang', i18next.language);
+}
+
+function setupLanguageButtons() {
+    const buttons = document.querySelectorAll('.lang-btn');
+    const currentLang = i18next.language;
+    
+    buttons.forEach(button => {
+        const lang = button.getAttribute('data-lang');
+        
+        if (lang === currentLang) {
+            button.classList.add('active');
+        }
+        
+        button.addEventListener('click', () => {
+            i18next.changeLanguage(lang, (err, t) => {
+                if (err) return console.error('Language change failed:', err);
+                
+                localStorage.setItem('language', lang);
+                
+                buttons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                updateContent();
+            });
+        });
+    });
+}
+
 // Initialize the game when DOM is loaded
 window.addEventListener('DOMContentLoaded', () => {
+    if (typeof i18next !== 'undefined' && typeof translations !== 'undefined') {
+        initI18next();
+    } else {
+        console.error('i18next or translations not loaded');
+    }
     new Game();
 });

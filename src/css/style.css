@@ -16,6 +16,37 @@ body {
     overflow: hidden;
 }
 
+#language-selector {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 5px;
+    z-index: 2000;
+}
+
+.lang-btn {
+    padding: 8px 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    font-weight: bold;
+    background: #222;
+    color: #0f0;
+    border: 2px solid #0f0;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.lang-btn:hover {
+    background: #0f0;
+    color: #000;
+}
+
+.lang-btn.active {
+    background: #0f0;
+    color: #000;
+}
+
 #ui-container {
     width: 400px;
     margin-bottom: 10px;
