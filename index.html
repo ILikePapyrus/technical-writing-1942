@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1942 - Arcade Shooter</title>
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+    <div id="ui-container">
+        <div class="ui-panel">
+            <div class="ui-item">
+                <span class="ui-label">SCORE</span>
+                <span id="score" class="ui-value">0</span>
+            </div>
+            <div class="ui-item">
+                <span class="ui-label">LIVES</span>
+                <span id="lives" class="ui-value">3</span>
+            </div>
+            <div class="ui-item">
+                <span class="ui-label">LOOPS</span>
+                <span id="loops" class="ui-value">3</span>
+            </div>
+        </div>
+    </div>
+    
+    <div id="game-container"></div>
+    
+    <div id="game-over-screen" class="hidden">
+        <h1>GAME OVER</h1>
+        <p>Final Score: <span id="final-score">0</span></p>
+        <button id="restart-btn">Press ENTER to Restart</button>
+    </div>
+
+    <div id="start-screen">
+        <h1>1942</h1>
+        <p>Arrow Keys or WASD to Move</p>
+        <p>SPACE to Shoot</p>
+        <p>L for Loop (Invulnerability)</p>
+        <button id="start-btn">Press ENTER to Start</button>
+    </div>
+
+    <script src="src/js/game.js"></script>
+</body>
+</html>
