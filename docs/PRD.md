@@ -1,124 +1,123 @@
-# Product Requirements Document (PRD)
+# Product Requirements Document (PRD) - English Translation
 
-## ✈️ Progetto: Riproposizione del Gioco Arcade "1942" (Web-Based)
+## ✈️ Project: "1942" Arcade Game Reimplementation (Web-Based)
 
-| Campo                 | Valore                                                           |
+| Field                 | Value                                                           |
 |:----------------------|:-----------------------------------------------------------------|
-| **Documento ID**      | PRD-1942-WEB-V1.0                                                |
-| **Autore**            | Gemini AI Analyst                                                |
-| **Data Versione**     | 5 Novembre 2025                                                  |
-| **Prodotto**          | Riproposizione di "1942" (Shoot 'Em Up a Scorrimento Verticale)  |
-| **Target Audience**   | AI Developer (LLM) per la generazione di codice                  |
-| **Tecnologie Target** | HTML5, CSS3, JavaScript (Vanilla JS, non sono ammessi Framework) |
+| **Document ID** | PRD-1942-WEB-V1.0                                                |
+| **Author** | Gemini AI Analyst                                                |
+| **Version Date** | November 5, 2025                                                  |
+| **Product** | Reimplementation of "1942" (Vertical Scrolling Shoot 'Em Up)      |
+| **Target Audience** | AI Developer (LLM) for code generation                           |
+| **Target Technologies** | HTML5, CSS3, JavaScript (Vanilla JS, no Frameworks allowed)      |
 
 ---
 
-## 1. Obiettivo del Progetto
+## 1. Project Goal
 
-L'obiettivo è generare un'implementazione fedele e completamente giocabile del classico arcade **"1942"** (Capcom, 1984)
-direttamente nel browser. La priorità è la **fedeltà meccanica** e l'**efficienza del codice** in JavaScript per gestire
-il _game loop_, la collisione e il rendering degli elementi (attraverso CSS o Canvas, preferibilmente tramite
-manipolazione DOM/CSS per semplicità e visibilità del codice generato).
-
----
-
-## 2. Architettura e Stack Tecnologico
-
-La soluzione deve essere implementata utilizzando lo stack web standard.
-
-### 2.1. Requisiti Tecnici
-
-- **HTML:** Struttura base del gioco (container, UI per punteggio/vite). Deve includere un elemento **`div`** principale
-  per il _game screen_.
-- **CSS:** Styling per l'area di gioco, i _sprite_ degli aerei (player/nemici/proiettili), e l'animazione di scorrimento
-  verticale (Background Scrolling).
-- **JavaScript (Vanilla JS):** Tutta la logica di gioco, gestione degli input, _game loop_ (`requestAnimationFrame`),
-  rilevamento delle collisioni, e gestione dello stato.
+The goal is to generate a faithful and fully playable implementation of the classic arcade game **"1942"** (Capcom, 1984)
+directly in the browser. The priority is **mechanical fidelity** and **code efficiency** in JavaScript to manage
+the *game loop*, collision detection, and element rendering (via CSS or Canvas, preferably through
+DOM/CSS manipulation for simplicity and visibility of the generated code).
 
 ---
 
-## 3. Funzionalità di Gioco (Game Mechanics)
+## 2. Architecture and Technology Stack
 
-### 3.1. Area di Gioco e Scorrimento
+The solution must be implemented using the standard web stack.
 
-- **Orientamento:** Scorrimento **verticale** dall'alto verso il basso (simulando il volo in avanti).
-- **Background:** Il background (oceano/terra) deve scorrere continuamente dal basso verso l'alto per dare un senso di
-  movimento.
-- **Dimensioni:** L'area di gioco deve avere un rapporto d'aspetto verticale (es. 4:3 o 3:4) per replicare l'esperienza
-  arcade. (Suggerimento per l'AI: $400px$ di larghezza per $600px$ di altezza).
+### 2.1. Technical Requirements
 
-### 3.2. Il Giocatore (Super Ace, P-38 Lightning)
+- **HTML:** Basic game structure (container, UI for score/lives). Must include a main **`div`** element
+  for the *game screen*.
+- **CSS:** Styling for the game area, aircraft *sprites* (player/enemies/bullets), and vertical scrolling animation (Background Scrolling).
+- **JavaScript (Vanilla JS):** All game logic, input handling, *game loop* (`requestAnimationFrame`),
+  collision detection, and state management.
 
-- **Controllo:** L'aereo del giocatore (chiamato "Super Ace") deve essere controllabile nelle **8 direzioni** tramite i
-  tasti freccia (o WASD).
-- **Sparo:** Premendo un tasto (es. **`Spazio`**), l'aereo spara proiettili singoli o doppi in rapida successione in
-  direzione verticale (in alto). Lo sparo deve essere **continuo** tenendo premuto il tasto.
-- **Mossa Speciale: Loop-the-Loop:** Premendo un tasto dedicato (es. **`L`**), il giocatore esegue un _loop_ evasivo.
-    - **Effetto:** L'aereo diventa **invulnerabile** (temporaneamente invisibile alle collisioni/proiettili).
-    - **Limitazione:** Il giocatore **non può sparare** durante il _loop_.
-    - **Conteggio:** Il giocatore ha un numero limitato di _loop_ per livello (default: 3).
+---
 
-### 3.3. Nemici
+## 3. Game Functionality (Game Mechanics)
 
-- **Tipi:** Minimo 3 tipi di aerei nemici distinti (es. caccia piccoli, medi, bombardieri in formazione).
-- **Movimento:** I nemici devono apparire dal limite superiore dell'area di gioco e muoversi verso il basso, spesso in *
-  *formazioni predefinite** (es. a V o a serpentina).
-- **Sparo Nemico:** I nemici sparano proiettili verso il basso.
-- **Collisioni:**
-    - Scontro con proiettile del giocatore: L'aereo nemico viene distrutto (dopo 1 o più colpi a seconda del tipo).
-    - Scontro con l'aereo del giocatore: Il giocatore perde una vita.
-    - Uscita dallo schermo: Se un nemico lascia il limite inferiore, scompare.
+### 3.1. Game Area and Scrolling
+
+- **Orientation:** **Vertical** scrolling from top to bottom (simulating forward flight).
+- **Background:** The background (ocean/land) must scroll continuously from bottom to top to give a sense of
+  movement.
+- **Dimensions:** The game area must have a vertical aspect ratio (e.g., 4:3 or 3:4) to replicate the
+  arcade experience. (Suggestion for the AI: $400px$ wide by $600px$ high).
+
+### 3.2. The Player (Super Ace, P-38 Lightning)
+
+- **Control:** The player's aircraft (named "Super Ace") must be controllable in **8 directions** using
+  the arrow keys (or WASD).
+- **Shooting:** Pressing a key (e.g., **`Space`**), the aircraft fires single or double bullets in rapid succession
+  in a vertical direction (upwards). Shooting must be **continuous** while the key is held down.
+- **Special Move: Loop-the-Loop:** Pressing a dedicated key (e.g., **`L`**), the player performs an evasive *loop*.
+    - **Effect:** The aircraft becomes **invulnerable** (temporarily invisible to collisions/bullets).
+    - **Limitation:** The player **cannot shoot** during the *loop*.
+    - **Count:** The player has a limited number of *loops* per level (default: 3).
+
+### 3.3. Enemies
+
+- **Types:** Minimum of 3 distinct enemy aircraft types (e.g., small fighters, medium fighters, formation bombers).
+- **Movement:** Enemies must appear from the top boundary of the game area and move downwards, often in
+  **predefined formations** (e.g., V-shape or serpentine).
+- **Enemy Fire:** Enemies shoot bullets downwards.
+- **Collisions:**
+    - Collision with player's bullet: The enemy aircraft is destroyed (after 1 or more hits depending on the type).
+    - Collision with player's aircraft: The player loses a life.
+    - Off-screen exit: If an enemy leaves the bottom boundary, it disappears.
 
 ### 3.4. Power-Up (POW)
 
-- **Generazione:** Quando una **formazione rossa completa** di aerei nemici viene distrutta, appare un _power-up_
-  chiamato **"POW"** (rappresentato come una P rossa).
-- **Raccolta:** Il giocatore deve volare sopra l'elemento "POW" per attivarlo.
-- **Effetti Primari (Implementare almeno 2 tipi):**
-    1. **Doppio Canone:** Aumenta la potenza di fuoco (es. spara due proiettili affiancati invece di uno).
-    2. **Scorta (Options):** Due aerei più piccoli appaiono ai lati del "Super Ace" e sparano in sincrono, aumentando la
-       copertura. (Queste "opzioni" possono essere distrutte da proiettili o collisioni nemiche).
+- **Generation:** When a **complete red formation** of enemy aircraft is destroyed, a *power-up*
+  called **"POW"** appears (represented as a red P).
+- **Collection:** The player must fly over the "POW" element to activate it.
+- **Primary Effects (Implement at least 2 types):**
+    1. **Double Cannon:** Increases firepower (e.g., fires two side-by-side bullets instead of one).
+    2. **Escorts (Options):** Two smaller aircraft appear on the sides of the "Super Ace" and fire in sync,
+       increasing coverage. (These "options" can be destroyed by enemy bullets or collisions).
 
-### 3.5. Ciclo di Gioco e Condizioni di Vittoria/Sconfitta
+### 3.5. Game Cycle and Win/Loss Conditions
 
-- **Vite:** Il giocatore inizia con un numero limitato di vite (default: 3).
-- **Perdita di Vita:** Avviene per collisione con aereo nemico o proiettile nemico (tranne durante il _loop_).
-- **Game Over:** Quando il contatore delle vite raggiunge zero.
-- **Punteggio:** Un contatore visibile deve tracciare i punti (es. 50 punti per il nemico più piccolo).
-
----
-
-## 4. Requisiti di Interfaccia Utente (UI)
-
-### 4.1. Visualizzazione dello Stato
-
-L'interfaccia utente, posizionata sopra o a lato dell'area di gioco, deve mostrare in tempo reale:
-
-| Metrica   | Ubicazione                                |
-|:----------|:------------------------------------------|
-| **Score** | Punteggio attuale del giocatore.          |
-| **Lives** | Vite rimanenti (icone di aerei o numero). |
-| **Loop**  | Numero di _loop_ speciali rimanenti.      |
-
-### 4.2. Assets Grafici
-
-- L'AI deve utilizzare forme geometriche di base, colori o _placeholder_ minimali in CSS per rappresentare il **Super
-  Ace**, i **Nemici** e i **Proiettili**. La grafica deve essere funzionale alla logica di collisione (es. l'area di
-  _hitbox_ del Super Ace è solo la fusoliera centrale, non le ali esterne).
+- **Lives:** The player starts with a limited number of lives (default: 3).
+- **Loss of Life:** Occurs upon collision with an enemy aircraft or enemy bullet (except during the *loop*).
+- **Game Over:** When the life counter reaches zero.
+- **Score:** A visible counter must track points (e.g., 50 points for the smallest enemy).
 
 ---
 
-## 5. Criteri di Accettazione
+## 4. User Interface (UI) Requirements
 
-Il codice generato sarà accettato se:
+### 4.1. Status Display
 
-- **Aderenza Meccanica:** Le meccaniche di base (movimento, sparo, collisione, _loop_ di invulnerabilità) sono
-  implementate e funzionano come descritto.
-- **Game Loop Stabile:** Il _game loop_ in JavaScript gestisce correttamente l'aggiornamento degli stati e il rendering
-  senza _flickering_ o ritardi evidenti.
-- **Struttura del Codice:** Il codice è ben commentato, logico e segue la separazione tra HTML (struttura), CSS (
-  aspetto) e JS (logica).
-- **Assenza di Framework:** Non è stato utilizzato alcun _framework_ o libreria esterna (solo Vanilla JS).
+The user interface, positioned above or next to the game area, must display in real-time:
 
-**Prossimo Passo per l'AI:** Analizzare questo PRD e iniziare a generare la struttura **HTML, CSS e JS** per
-un'implementazione minimalista ma completa del _game loop_ e delle collisioni del giocatore.
+| Metric   | Location                                     |
+|:----------|:---------------------------------------------|
+| **Score** | Player's current score.                      |
+| **Lives** | Remaining lives (aircraft icons or number). |
+| **Loop** | Number of remaining special *loops*.         |
+
+### 4.2. Graphic Assets
+
+- The AI must use basic geometric shapes, colors, or minimal CSS *placeholders* to represent the **Super
+  Ace**, **Enemies**, and **Bullets**. The graphics must be functional for collision logic (e.g., the
+  Super Ace's *hitbox* area is only the central fuselage, not the outer wings).
+
+---
+
+## 5. Acceptance Criteria
+
+The generated code will be accepted if:
+
+- **Mechanical Adherence:** The basic mechanics (movement, shooting, collision, invulnerability *loop*) are
+  implemented and function as described.
+- **Stable Game Loop:** The JavaScript *game loop* correctly manages state updates and rendering without
+  *flickering* or noticeable lag.
+- **Code Structure:** The code is well-commented, logical, and follows the separation between HTML (structure),
+  CSS (appearance), and JS (logic).
+- **Absence of Frameworks:** No external *frameworks* or libraries were used (Vanilla JS only).
+
+**Next Step for the AI:** Analyze this PRD and begin generating the **HTML, CSS, and JS** structure for
+a minimalist but complete implementation of the *game loop* and player collisions.
