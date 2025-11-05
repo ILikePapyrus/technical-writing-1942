@@ -1,9 +1,21 @@
-# GIORNO 1
+# Verbale Riunione di Stato - Lunedì 03/11/25 14:30
 
-- Repository creato e condiviso a tutti i membri del team;
-- Iniziato a pensare a come utilizzare l'IA per creare un PRD, basandosi su ciò che abbiamo svolto nelle lezioni precedenti.
+**Partecipanti:**
+- Lucia
+- Marco
+- Gabriele
+- Pierpaolo
 
 ---
 
-NEXT STEP:
-- PRD
+## Decisioni Prese
+- Abbiamo creato il Repository ed è stato condiviso a tutti i membri del team;
+- Abbiamo iniziato a pensare a come utilizzare l'IA per creare un PRD, basandosi su ciò che abbiamo svolto nelle lezioni precedenti.
+
+---
+
+## Action Items (To Do)
+| Assegnato a | Compito | Deadline Simulata |
+| :--- | :--- | :--- |
+| Pierpaolo | Creazione del PRD | Martedì |
+| Marco | Verbale del Giorno 2 | Martedì |
