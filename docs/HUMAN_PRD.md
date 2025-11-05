@@ -1,5 +1,7 @@
 # Game: 1942
 
+# PLEASE REFER TO THE OTHER PRD INSTEAD!
+
 Epic top down 2D shooter game.
 
 Fly in the air while avoiding deadly bullets and projectiles from enemy aircraft.
