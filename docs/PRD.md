@@ -12,4 +12,4 @@ When all lives are lost the game is over and the player must restart.
 The player is also able to shoot projectiles, though they are faster moving than the enemy's.
 Enemies will die on one hit, aside from bosses which will take multiple hits.
 
-The whole game operates on a 2D plane and there is no gameplay elements outside of it.
+The whole game operates on a 2D plane and there are no gameplay elements outside of it.
