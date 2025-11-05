@@ -1,6 +1,6 @@
 # GIORNO 2
 
-- Creato PRD
+- Abbiamo creato il PRD
 - Siamo indietro nella tabella di marcia...
 
 ---
