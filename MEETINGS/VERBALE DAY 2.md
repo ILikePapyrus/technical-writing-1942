@@ -1,9 +1,22 @@
-# GIORNO 2
+# Verbale Riunione di Stato - Martedì 04/11/25 14:40
 
-- Abbiamo creato il PRD
-- Siamo indietro nella tabella di marcia...
+**Partecipanti:**
+- Lucia
+- Marco
+- Gabriele
+- Pierpaolo
 
 ---
 
-NEXT STEP:
-- Analisi funzionale
+## Decisioni Prese
+- Abbiamo creato il PRD 
+ 
+## Appunti 
+Siamo indietro nella tabella di marcia...
+---
+
+## Action Items (To Do)
+| Assegnato a | Compito | Deadline Simulata |
+| :--- | :--- | :--- |
+| Pierpaolo | Analisi funzionale | Mercoledì |
+| Marco | Verbale del Giorno 3 | Mercoledì |

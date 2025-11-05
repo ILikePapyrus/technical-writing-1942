@@ -1,10 +1,22 @@
-# GIORNO 3
+# Verbale Riunione di Stato - Mercoledì 05/11/25 14:50
 
-- Umano lavora al README;
+**Partecipanti:**
+- Lucia
+- Marco
+- Gabriele
+- Pierpaolo
+
+---
+
+## Decisioni Prese
+- Gabriele lavora al README
 - AI ha prodotto un PRD e sta lavorando a un'analisi funzionale completa.
 
 ---
 
-NEXT STEP:
-- Analisi Funzionale completa;
-- Analisi Tecnica.
+## Action Items (To Do)
+| Assegnato a | Compito | Deadline Simulata |
+| :--- | :--- | :--- |
+| Pierpaolo | Analisi funzionale completa | Giovedì |
+| Pierpaolo | Analisi tecnica | Giovedì |
+| Marco | Verbale del Giorno 3 | Giovedì |
