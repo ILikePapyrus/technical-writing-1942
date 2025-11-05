@@ -9,7 +9,7 @@ blazingly fast `HTML5`, `CSS3`, and `JavaScript` 🚀🚀🚀.
 - Revolutionary graphics
 - Built on cutting-edge technology
 
-# How to play
+## How to play
 
 TODO: Add this later
 
