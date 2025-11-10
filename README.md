@@ -26,12 +26,14 @@ This is a web-based recreation of the classic 1942 arcade game, implemented usin
 ## How to Play
 
 ### Controls
+
 - **Arrow Keys** or **WASD**: Move your plane in 8 directions
 - **SPACE**: Shoot projectiles (hold for continuous fire)
 - **L**: Execute Loop-the-Loop (grants temporary invulnerability)
 - **ENTER**: Start game / Restart after game over
 
 ### Gameplay
+
 - Shoot down enemy planes in formations
 - Avoid enemy projectiles and collisions
 - Destroy complete red formations to spawn power-ups
@@ -44,17 +46,20 @@ This is a web-based recreation of the classic 1942 arcade game, implemented usin
 ### Frontend Architecture
 
 **Technology Stack:**
+
 - Pure HTML5, CSS3, and Vanilla JavaScript (no frameworks)
-- DOM-based rendering system (not Canvas-based)
+- DOM-based rendering system
 - CSS transforms for all visual updates and animations
 
 **Rendering Pattern:**
+
 - All game entities (player, enemies, projectiles) are represented as `div` elements in the DOM
-- Position updates use `transform: translate(x, y)` instead of `top`/`left` to avoid layout reflows
+- Position updates use `transform: translate(x, y)` instead of `top`/`left` to avoid excessive GPU usage
 - CSS classes define sprite appearance (currently using colored geometric shapes)
 - Background scrolling implemented via CSS `@keyframes` animation
 
 **Game Loop Architecture:**
+
 - Single `requestAnimationFrame` loop orchestrates all game logic
 - Three-phase update cycle: Input Handling → Logic Update → Render
 - Delta-time based updates for frame-rate independence
@@ -62,6 +67,7 @@ This is a web-based recreation of the classic 1942 arcade game, implemented usin
 
 **Code Organization:**
 The game uses a class-based architecture:
+
 - `Game`: Main orchestrator class managing game state, entities, and loop
 - `Player`: Player-controlled fighter with shooting and loop mechanics
 - `Enemy`: Enemy aircraft with movement patterns and AI shooting
@@ -70,12 +76,14 @@ The game uses a class-based architecture:
 - `InputHandler`: Keyboard input state management
 
 **State Management:**
+
 - ES6 classes for all game entities
 - Game class maintains arrays of active entities (enemies, projectiles, powerUps)
 - Entity lifecycle managed through `isMarkedForDeletion` flags
 - Input state tracked via key-value object updated by event listeners
 
 **UI Components:**
+
 - HUD displays score, lives, and loop counter
 - Start screen with game instructions
 - Game over screen with final score and restart option
@@ -83,6 +91,7 @@ The game uses a class-based architecture:
 ### Performance Considerations
 
 **DOM Manipulation:**
+
 - Hardware acceleration via CSS transforms
 - `translate3d` used for GPU-accelerated animations
 - Avoidance of layout reflows by never using `top`/`left` in game loop
@@ -91,12 +100,14 @@ The game uses a class-based architecture:
 **Game Mechanics Implementation:**
 
 **Player System:**
+
 - 8-directional movement with diagonal speed normalization
 - Continuous shooting with cooldown system
 - Loop-the-loop invulnerability mechanic (L key, limited uses)
 - 3 lives system with collision detection
 
 **Enemy System:**
+
 - Wave-based spawning system with multiple formation patterns:
   - V-Formation
   - Line Formation
@@ -106,11 +117,13 @@ The game uses a class-based architecture:
 - AI shooting at intervals
 
 **Collision Detection:**
+
 - Axis-Aligned Bounding Box (AABB) algorithm
 - Separate checks for player-enemy, player-projectile, and projectile-enemy collisions
 - Collision immunity during loop-the-loop
 
 **Power-Up System:**
+
 - Drops from destroyed red formations
 - Two types: Double cannon and Side options
 - Visual pulse animation for visibility
@@ -120,6 +133,7 @@ The game uses a class-based architecture:
 **None - Fully Vanilla Implementation**
 
 The project intentionally avoids all external frameworks, libraries, and build tools to maintain:
+
 - Maximum portability
 - Minimal deployment complexity
 - Complete code transparency
@@ -127,12 +141,13 @@ The project intentionally avoids all external frameworks, libraries, and build t
 
 ## Development Setup
 
-The game runs on a simple Python HTTP server on port 5000:
+The game can run on a simple Python HTTP server on port 5000:
+
 ```bash
 python -m http.server 5000
 ```
 
-Open your browser and navigate to the Replit webview to play!
+Or open the `index.html` file in the browser
 
 ## Deployment
 
@@ -141,6 +156,7 @@ The game is ready for deployment as a static site. It requires no build process 
 ## Future Enhancements
 
 Potential improvements as suggested by the technical review:
+
 1. Add audio and sound effects
 2. Implement sprite sheets for authentic 1942 graphics
 3. Add more enemy types and boss battles

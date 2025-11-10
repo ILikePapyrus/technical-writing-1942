@@ -1,7 +1,7 @@
 # Analisi Tecnica (AT) e Linee Guida per AI Developer
 
 | Campo               | Valore             |
-|:--------------------|:-------------------|
+| :------------------ | :----------------- |
 | **Documento ID**    | AT-1942-WEB-V1.0   |
 | **Riferimento AFT** | AFT-1942-WEB-V1.0  |
 | **Autore**          | Gemini AI Analyst  |
@@ -61,17 +61,17 @@ requestAnimationFrame(gameLoop);
 L'AFT ha definito le classi (`Game`, `Player`, `Enemy`, `Projectile`). La loro interazione deve seguire questo schema:
 
 - **`Game` (Orchestratore):** È la classe principale.
-    - Contiene gli _array_ di stato: `this.enemies = []`, `this.projectiles = []`, `this.powerUps = []`.
-    - Contiene l'istanza del giocatore: `this.player = new Player(...)`.
-    - Contiene lo stato globale: `this.score`, `this.lives`.
-    - La sua funzione `update()` orchestra le collisioni e la _garbage collection_.
+  - Contiene gli _array_ di stato: `this.enemies = []`, `this.projectiles = []`, `this.powerUps = []`.
+  - Contiene l'istanza del giocatore: `this.player = new Player(...)`.
+  - Contiene lo stato globale: `this.score`, `this.lives`.
+  - La sua funzione `update()` orchestra le collisioni e la _garbage collection_.
 - **Entità (Player, Enemy, Projectile):**
-    - Ogni classe di entità deve avere:
-        - Proprietà di stato: `this.x`, `this.y`, `this.width`, `this.height`.
-        - Un riferimento al proprio elemento DOM: `this.element`.
-        - Un flag di "morte": `this.isMarkedForDeletion = false`.
-    - Il costruttore di ogni entità è responsabile della **creazione del proprio elemento DOM** e dell'aggiunta al
-      `#game-container`.
+  - Ogni classe di entità deve avere:
+    - Proprietà di stato: `this.x`, `this.y`, `this.width`, `this.height`.
+    - Un riferimento al proprio elemento DOM: `this.element`.
+    - Un flag di "morte": `this.isMarkedForDeletion = false`.
+  - Il costruttore di ogni entità è responsabile della **creazione del proprio elemento DOM** e dell'aggiunta al
+    `#game-container`.
 
 ### 1.5. Pattern di Gestione Input: Oggetto di Stato
 
@@ -112,14 +112,14 @@ La stabilità del gioco dipende da una corretta _garbage collection_ (GC) degli 
 - Quando un'entità viene distrutta (collisione, uscita schermo), **non rimuoverla immediatamente dall'array** (causa
   errori nei cicli `for`).
 - **Pattern Corretto:**
-    1. Impostare il flag: `enemy.isMarkedForDeletion = true`.
-    2. Rimuovere l'elemento dal DOM: `enemy.element.remove()`.
-    3. Alla _fine_ del ciclo `game.update()`, filtrare gli array per rimuovere tutti gli elementi contrassegnati:
-       ```javascript
-       // Dentro game.update(), dopo i cicli di collisione
-       this.enemies = this.enemies.filter((enemy) => !enemy.isMarkedForDeletion);
-       this.projectiles = this.projectiles.filter((p) => !p.isMarkedForDeletion);
-       ```
+  1. Impostare il flag: `enemy.isMarkedForDeletion = true`.
+  2. Rimuovere l'elemento dal DOM: `enemy.element.remove()`.
+  3. Alla _fine_ del ciclo `game.update()`, filtrare gli array per rimuovere tutti gli elementi contrassegnati:
+     ```javascript
+     // Dentro game.update(), dopo i cicli di collisione
+     this.enemies = this.enemies.filter((enemy) => !enemy.isMarkedForDeletion);
+     this.projectiles = this.projectiles.filter((p) => !p.isMarkedForDeletion);
+     ```
 
 ### 2.3. Sistema di Spawning (Basato sul Tempo)
 
@@ -137,30 +137,30 @@ Per generare codice di alta qualità, l'interazione con l'AI (tu) deve seguire q
 ### 3.1. Prompting Efficace (Regole Base)
 
 1. **Sii Specifico e Atomico:** Non chiedere "Genera il gioco". Chiedi richieste granulari.
-    - **NO:** "Crea i nemici."
-    - **SÌ:** "Genera la classe JS `Enemy` (per `game.js`) secondo l'AFT. Deve avere un costruttore `(game, x, y, type)`
-      e un metodo `update()` che ne incrementa `this.y` (velocità fissa). Il costruttore deve creare un `div`,
-      assegnargli la classe `enemy`, e appenderlo al `game.gameContainer`."
+   - **NO:** "Crea i nemici."
+   - **SÌ:** "Genera la classe JS `Enemy` (per `game.js`) secondo l'AFT. Deve avere un costruttore `(game, x, y, type)`
+     e un metodo `update()` che ne incrementa `this.y` (velocità fissa). Il costruttore deve creare un `div`,
+     assegnargli la classe `enemy`, e appenderlo al `game.gameContainer`."
 2. **Definisci il Contesto:** Specifica sempre il file di destinazione e (se necessario) la classe o funzione in cui il
    codice deve essere integrato.
-    - **Esempio:** "Nel file `game.js`, all'interno del metodo `update()` della classe `Game`, aggiungi il ciclo per il
-      rilevamento delle collisioni tra `this.player.projectiles` e `this.enemies`."
+   - **Esempio:** "Nel file `game.js`, all'interno del metodo `update()` della classe `Game`, aggiungi il ciclo per il
+     rilevamento delle collisioni tra `this.player.projectiles` e `this.enemies`."
 3. **Definisci l'Output:** Concludi i prompt specificando il formato.
-    - **Esempio:** "Formato output: Blocco di codice JavaScript Vanilla ES6 con commenti JSDoc per il metodo."
+   - **Esempio:** "Formato output: Blocco di codice JavaScript Vanilla ES6 con commenti JSDoc per il metodo."
 4. **Iterazione (Refactoring):** È preferibile chiedere una bozza e poi raffinarla.
-    - **Esempio 1:** "Genera la classe `Player`."
-    - **Esempio 2:** "Ora, modifica il metodo `update()` della classe `Player` per aggiungere il _clamping_ (non deve
-      uscire dai bordi del `game.width`)."
+   - **Esempio 1:** "Genera la classe `Player`."
+   - **Esempio 2:** "Ora, modifica il metodo `update()` della classe `Player` per aggiungere il _clamping_ (non deve
+     uscire dai bordi del `game.width`)."
 
 ### 3.2. Disclaimer e QA (Controllo Qualità Obbligatorio)
 
-- **Revisione Umana (Sempre):** Il codice generato dall'AI è un **draft** (bozza). Deve sempre essere sottoposto a *
-  *revisione incrociata** da uno sviluppatore umano prima di essere integrato nel branch principale.
+- **Revisione Umana (Sempre):** Il codice generato dall'AI è un **draft** (bozza). Deve sempre essere sottoposto a \*
+  \*revisione incrociata\*\* da uno sviluppatore umano prima di essere integrato nel branch principale.
 - **Fokus sulla Performance:** L'AI deve evitare la creazione di `event listener` o la manipolazione del DOM (
   lettura/scrittura) _all'interno_ delle funzioni del `gameLoop` (`update`, `render`).
-    - La lettura delle dimensioni (es. `element.offsetWidth`) va fatta una volta sola, all'inizializzazione.
-    - Gli _event listener_ vanno registrati _una sola volta_ all'avvio del gioco.
+  - La lettura delle dimensioni (es. `element.offsetWidth`) va fatta una volta sola, all'inizializzazione.
+  - Gli _event listener_ vanno registrati _una sola volta_ all'avvio del gioco.
 - **Verifica di Sicurezza ed Efficienza:**
-    - Verificare che la **Garbage Collection** (sezione 2.2) sia implementata correttamente. La mancata rimozione di
-      elementi dal DOM o dagli array è un bug critico che porta a un _memory leak_.
-    - Verificare che non ci siano riferimenti a librerie o framework esterni (requisito PRD).
+  - Verificare che la **Garbage Collection** (sezione 2.2) sia implementata correttamente. La mancata rimozione di
+    elementi dal DOM o dagli array è un bug critico che porta a un _memory leak_.
+  - Verificare che non ci siano riferimenti a librerie o framework esterni (requisito PRD).

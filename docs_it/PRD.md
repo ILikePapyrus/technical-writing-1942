@@ -3,7 +3,7 @@
 ## ✈️ Progetto: Riproposizione del Gioco Arcade "1942" (Web-Based)
 
 | Campo                 | Valore                                                           |
-|:----------------------|:-----------------------------------------------------------------|
+| :-------------------- | :--------------------------------------------------------------- |
 | **Documento ID**      | PRD-1942-WEB-V1.0                                                |
 | **Autore**            | Gemini AI Analyst                                                |
 | **Data Versione**     | 5 Novembre 2025                                                  |
@@ -54,20 +54,20 @@ La soluzione deve essere implementata utilizzando lo stack web standard.
 - **Sparo:** Premendo un tasto (es. **`Spazio`**), l'aereo spara proiettili singoli o doppi in rapida successione in
   direzione verticale (in alto). Lo sparo deve essere **continuo** tenendo premuto il tasto.
 - **Mossa Speciale: Loop-the-Loop:** Premendo un tasto dedicato (es. **`L`**), il giocatore esegue un _loop_ evasivo.
-    - **Effetto:** L'aereo diventa **invulnerabile** (temporaneamente invisibile alle collisioni/proiettili).
-    - **Limitazione:** Il giocatore **non può sparare** durante il _loop_.
-    - **Conteggio:** Il giocatore ha un numero limitato di _loop_ per livello (default: 3).
+  - **Effetto:** L'aereo diventa **invulnerabile** (temporaneamente invisibile alle collisioni/proiettili).
+  - **Limitazione:** Il giocatore **non può sparare** durante il _loop_.
+  - **Conteggio:** Il giocatore ha un numero limitato di _loop_ per livello (default: 3).
 
 ### 3.3. Nemici
 
 - **Tipi:** Minimo 3 tipi di aerei nemici distinti (es. caccia piccoli, medi, bombardieri in formazione).
-- **Movimento:** I nemici devono apparire dal limite superiore dell'area di gioco e muoversi verso il basso, spesso in *
-  *formazioni predefinite** (es. a V o a serpentina).
+- **Movimento:** I nemici devono apparire dal limite superiore dell'area di gioco e muoversi verso il basso, spesso in \*
+  \*formazioni predefinite\*\* (es. a V o a serpentina).
 - **Sparo Nemico:** I nemici sparano proiettili verso il basso.
 - **Collisioni:**
-    - Scontro con proiettile del giocatore: L'aereo nemico viene distrutto (dopo 1 o più colpi a seconda del tipo).
-    - Scontro con l'aereo del giocatore: Il giocatore perde una vita.
-    - Uscita dallo schermo: Se un nemico lascia il limite inferiore, scompare.
+  - Scontro con proiettile del giocatore: L'aereo nemico viene distrutto (dopo 1 o più colpi a seconda del tipo).
+  - Scontro con l'aereo del giocatore: Il giocatore perde una vita.
+  - Uscita dallo schermo: Se un nemico lascia il limite inferiore, scompare.
 
 ### 3.4. Power-Up (POW)
 
@@ -75,9 +75,9 @@ La soluzione deve essere implementata utilizzando lo stack web standard.
   chiamato **"POW"** (rappresentato come una P rossa).
 - **Raccolta:** Il giocatore deve volare sopra l'elemento "POW" per attivarlo.
 - **Effetti Primari (Implementare almeno 2 tipi):**
-    1. **Doppio Canone:** Aumenta la potenza di fuoco (es. spara due proiettili affiancati invece di uno).
-    2. **Scorta (Options):** Due aerei più piccoli appaiono ai lati del "Super Ace" e sparano in sincrono, aumentando la
-       copertura. (Queste "opzioni" possono essere distrutte da proiettili o collisioni nemiche).
+  1. **Doppio Canone:** Aumenta la potenza di fuoco (es. spara due proiettili affiancati invece di uno).
+  2. **Scorta (Options):** Due aerei più piccoli appaiono ai lati del "Super Ace" e sparano in sincrono, aumentando la
+     copertura. (Queste "opzioni" possono essere distrutte da proiettili o collisioni nemiche).
 
 ### 3.5. Ciclo di Gioco e Condizioni di Vittoria/Sconfitta
 
@@ -95,7 +95,7 @@ La soluzione deve essere implementata utilizzando lo stack web standard.
 L'interfaccia utente, posizionata sopra o a lato dell'area di gioco, deve mostrare in tempo reale:
 
 | Metrica   | Ubicazione                                |
-|:----------|:------------------------------------------|
+| :-------- | :---------------------------------------- |
 | **Score** | Punteggio attuale del giocatore.          |
 | **Lives** | Vite rimanenti (icone di aerei o numero). |
 | **Loop**  | Numero di _loop_ speciali rimanenti.      |
